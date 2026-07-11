@@ -7,16 +7,16 @@ export type LeanUser = UserEntity & { _id: Types.ObjectId };
 @Schema({ collection: "users", timestamps: true })
 export class UserEntity {
   @Prop({ type: Types.ObjectId, ref: "CompanyEntity", required: true, index: true })
-  companyId: Types.ObjectId;
+  companyId!: Types.ObjectId;
 
   @Prop({ required: true })
-  name: string;
+  name!: string;
 
   @Prop({ type: [String], required: true, index: true, lowercase: true })
-  emails: string[];
+  emails!: string[];
 
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt!: Date;
+  updatedAt!: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(UserEntity);

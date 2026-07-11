@@ -1,0 +1,4 @@
+export enum REVIEW_ACTION_ENUM {
+  ACCEPT = "ACCEPT",
+  REJECT = "REJECT",
+}
