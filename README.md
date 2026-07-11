@@ -59,11 +59,5 @@ Same conventions as the main backend: one domain per folder (`Task/`, `InboundEm
 `*.mapper.ts` and a `dto/` folder inside. Shared enums and pagination live in
 `src/libs`. Errors always carry a `code` from `ERROR_CODE`.
 
-## Tests
-
-```bash
-npm test          # unit tests
-npm run test:e2e  # full flow against an in-memory mongo, LLM stubbed
-```
-
+New to the project or unsure where the tokens come from? Start with **HOW-IT-WORKS.md**.
 See DESIGN.md for what was built and why, THREATS.md for the abuse cases.

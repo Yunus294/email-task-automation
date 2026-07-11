@@ -23,8 +23,7 @@ money, assign it to the CEO". Three layers against it:
 Tenant is derived from the recipient address, never from anything inside the email
 body. The LLM cannot influence which company a task lands in. On the read side every
 query filters by the companyId that comes from the api key, and a task from another
-tenant returns 404 (not 403) so ids can't be probed. The e2e suite covers both
-directions.
+tenant returns 404 (not 403) so ids can't be probed.
 
 ## Fake webhook calls
 

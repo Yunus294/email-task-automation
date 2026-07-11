@@ -1,8 +1,9 @@
 import { PagePaginationResult } from "../libs/pagination/pagination";
 import { LeanTask } from "./task.entity";
+import { TaskPageResponseDto, TaskResponseDto } from "./dto/task-response.dto";
 
 export class TaskMapper {
-  static toResponse(task: LeanTask) {
+  static toResponse(task: LeanTask): TaskResponseDto {
     return {
       id: task._id.toString(),
       companyId: task.companyId?.toString(),
@@ -27,7 +28,7 @@ export class TaskMapper {
     };
   }
 
-  static toPage(result: PagePaginationResult<LeanTask>) {
+  static toPage(result: PagePaginationResult<LeanTask>): TaskPageResponseDto {
     return {
       items: result.items.map((task) => TaskMapper.toResponse(task)),
       page: result.page,
