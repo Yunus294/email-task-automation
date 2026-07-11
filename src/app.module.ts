@@ -5,6 +5,10 @@ import { AppController } from "./app.controller";
 import { CompanyEntity, CompanySchema } from "./Company/company.entity";
 import { UserEntity, UserSchema } from "./User/user.entity";
 import { UserService } from "./User/user.service";
+import { TaskEntity, TaskSchema } from "./Task/task.entity";
+import { TaskService } from "./Task/task.service";
+import { TaskController } from "./Task/task.controller";
+import { LlmService } from "./Llm/llm.service";
 
 @Module({
   imports: [
@@ -23,9 +27,10 @@ import { UserService } from "./User/user.service";
     MongooseModule.forFeature([
       { name: CompanyEntity.name, schema: CompanySchema },
       { name: UserEntity.name, schema: UserSchema },
+      { name: TaskEntity.name, schema: TaskSchema },
     ]),
   ],
-  controllers: [AppController],
-  providers: [UserService],
+  controllers: [AppController, TaskController],
+  providers: [UserService, TaskService, LlmService],
 })
 export class AppModule {}
