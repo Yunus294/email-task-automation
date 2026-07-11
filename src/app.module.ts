@@ -8,6 +8,9 @@ import { UserService } from "./User/user.service";
 import { TaskEntity, TaskSchema } from "./Task/task.entity";
 import { TaskService } from "./Task/task.service";
 import { TaskController } from "./Task/task.controller";
+import { InboundEmailEntity, InboundEmailSchema } from "./InboundEmail/inboundEmail.entity";
+import { InboundEmailService } from "./InboundEmail/inboundEmail.service";
+import { InboundEmailController } from "./InboundEmail/inboundEmail.controller";
 import { LlmService } from "./Llm/llm.service";
 
 @Module({
@@ -28,9 +31,10 @@ import { LlmService } from "./Llm/llm.service";
       { name: CompanyEntity.name, schema: CompanySchema },
       { name: UserEntity.name, schema: UserSchema },
       { name: TaskEntity.name, schema: TaskSchema },
+      { name: InboundEmailEntity.name, schema: InboundEmailSchema },
     ]),
   ],
-  controllers: [AppController, TaskController],
-  providers: [UserService, TaskService, LlmService],
+  controllers: [AppController, TaskController, InboundEmailController],
+  providers: [UserService, TaskService, InboundEmailService, LlmService],
 })
 export class AppModule {}
