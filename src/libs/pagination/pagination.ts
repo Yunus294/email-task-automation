@@ -10,8 +10,8 @@ export interface PagePaginationResult<T> {
 }
 
 export async function paginate<T>(
-  model: Model<T>,
-  filter: FilterQuery<T>,
+  model: Model<any>,
+  filter: FilterQuery<any>,
   dto: PagePaginationDto,
   sort: Record<string, SortOrder> = { createdAt: -1 },
 ): Promise<PagePaginationResult<T>> {

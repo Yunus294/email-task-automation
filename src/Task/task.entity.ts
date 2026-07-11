@@ -8,25 +8,25 @@ export type LeanTask = TaskEntity & { _id: Types.ObjectId };
 @Schema({ _id: false })
 export class TaskSource {
   @Prop({ type: Types.ObjectId })
-  emailId: Types.ObjectId;
+  emailId!: Types.ObjectId;
 
   @Prop()
-  messageId: string;
+  messageId!: string;
 
   @Prop()
-  from: string;
+  from!: string;
 
   @Prop()
-  subject: string;
+  subject!: string;
 }
 
 @Schema({ collection: "tasks", timestamps: true })
 export class TaskEntity {
   @Prop({ type: Types.ObjectId, ref: "CompanyEntity", required: true, index: true })
-  companyId: Types.ObjectId;
+  companyId!: Types.ObjectId;
 
   @Prop({ required: true })
-  title: string;
+  title!: string;
 
   @Prop({ nullable: true })
   description?: string;
@@ -46,7 +46,7 @@ export class TaskEntity {
     default: TASK_STATUS_ENUM.PENDING_REVIEW,
     index: true,
   })
-  status: TASK_STATUS_ENUM;
+  status!: TASK_STATUS_ENUM;
 
   @Prop({ type: TaskSource })
   source?: TaskSource;
@@ -57,8 +57,8 @@ export class TaskEntity {
   @Prop({ type: Date })
   reviewedAt?: Date;
 
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt!: Date;
+  updatedAt!: Date;
 }
 
 export const TaskSchema = SchemaFactory.createForClass(TaskEntity);

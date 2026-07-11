@@ -7,13 +7,13 @@ export type LeanCompany = CompanyEntity & { _id: Types.ObjectId };
 @Schema({ collection: "companies", timestamps: true })
 export class CompanyEntity {
   @Prop({ required: true })
-  name: string;
+  name!: string;
 
   @Prop({ required: true, unique: true })
-  apiKey: string;
+  apiKey!: string;
 
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt!: Date;
+  updatedAt!: Date;
 }
 
 export const CompanySchema = SchemaFactory.createForClass(CompanyEntity);

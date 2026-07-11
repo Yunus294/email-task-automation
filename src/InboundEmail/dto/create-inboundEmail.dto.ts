@@ -15,17 +15,17 @@ export class CreateInboundEmailDto {
   @IsString()
   @IsNotEmpty()
   @MaxLength(500)
-  messageId: string;
+  messageId!: string;
 
   @ApiProperty({ example: "client@corp.com" })
   @IsEmail()
-  from: string;
+  from!: string;
 
   @ApiProperty({ example: ["sara@acme.uz"], isArray: true })
   @IsArray()
   @ArrayNotEmpty()
   @IsEmail({}, { each: true })
-  to: string[];
+  to!: string[];
 
   @ApiPropertyOptional({ isArray: true })
   @IsOptional()

@@ -1,7 +1,6 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { MongooseModule } from "@nestjs/mongoose";
-import { AppController } from "./app.controller";
 import { CompanyEntity, CompanySchema } from "./Company/company.entity";
 import { UserEntity, UserSchema } from "./User/user.entity";
 import { UserService } from "./User/user.service";
@@ -34,7 +33,7 @@ import { LlmService } from "./Llm/llm.service";
       { name: InboundEmailEntity.name, schema: InboundEmailSchema },
     ]),
   ],
-  controllers: [AppController, TaskController, InboundEmailController],
+  controllers: [ TaskController, InboundEmailController],
   providers: [UserService, TaskService, InboundEmailService, LlmService],
 })
 export class AppModule {}

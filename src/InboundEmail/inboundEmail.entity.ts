@@ -8,22 +8,22 @@ export type LeanInboundEmail = InboundEmailEntity & { _id: Types.ObjectId };
 @Schema({ collection: "inbound_emails", timestamps: true })
 export class InboundEmailEntity {
   @Prop({ required: true, unique: true })
-  messageId: string;
+  messageId!: string;
 
   @Prop({ required: true })
-  from: string;
+  from!: string;
 
   @Prop({ type: [String], required: true })
-  to: string[];
+  to!: string[];
 
   @Prop({ type: [String], default: [] })
-  cc: string[];
+  cc!: string[];
 
   @Prop({ default: "" })
-  subject: string;
+  subject!: string;
 
   @Prop({ default: "" })
-  text: string;
+  text!: string;
 
   @Prop({ nullable: true })
   html?: string;
@@ -37,7 +37,7 @@ export class InboundEmailEntity {
     default: INBOUND_EMAIL_STATUS_ENUM.RECEIVED,
     index: true,
   })
-  status: INBOUND_EMAIL_STATUS_ENUM;
+  status!: INBOUND_EMAIL_STATUS_ENUM;
 
   @Prop({ type: Types.ObjectId, ref: "CompanyEntity", index: true })
   companyId?: Types.ObjectId;
@@ -54,8 +54,8 @@ export class InboundEmailEntity {
   @Prop()
   error?: string;
 
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt!: Date;
+  updatedAt!: Date;
 }
 
 export const InboundEmailSchema = SchemaFactory.createForClass(InboundEmailEntity);

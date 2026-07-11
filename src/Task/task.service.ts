@@ -39,7 +39,7 @@ export class TaskService {
     const filter: Record<string, unknown> = { companyId };
     if (dto.status) filter.status = dto.status;
 
-    return paginate<LeanTask>(this.taskModel as Model<LeanTask>, filter, dto);
+    return paginate<LeanTask>(this.taskModel, filter, dto);
   }
 
   async findOne(companyId: Types.ObjectId, id: string): Promise<LeanTask> {
